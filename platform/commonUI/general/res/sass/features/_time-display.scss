@@ -1,0 +1,38 @@
+.l-time-display {
+	$transTime: 200ms;
+    line-height: 140%;
+	&:hover {
+		.l-btn.control {
+			opacity: 1;
+		}
+	}
+
+	&.l-timer {
+        .l-value:before,
+        .control {
+            font-size: 0.8em;
+        }
+
+        .l-value:before {
+            // Direction +/- element
+            margin-right: $interiorMarginSm;
+        }
+        .control {
+            @include trans-prop-nice((width, opacity), $transTime);
+            line-height: inherit;
+            margin-right: 0;
+            opacity: 0;
+            width: 0;
+        }
+		&:hover .control {
+            margin-right: $interiorMargin;
+            opacity: 1;
+			width: 1em;
+		}
+	}
+
+    .value {
+        color: pullForward($colorBodyFg, 50%);
+        font-weight: 400;
+    }
+}
